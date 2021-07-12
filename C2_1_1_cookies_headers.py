@@ -6,7 +6,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 
 import requests
 
-s = requests.Session()
+s = requests.Session() # Session을 열어주는 메소드
 
 #r = s.get('https://naver.com') # PUT(FETCH), DELETE, GET, POST
 #print('1', r.text) # Naver의 메인페이지를 반환하여 Get 방식으로 가져온다
@@ -22,7 +22,9 @@ headers = {'User-Agent' : 'myPythonApp_1.0.0'}
 r = s.get(url, headers=headers)
 print(r.text)
 
-s.close()
+s.close() # Session을 열었다면 반드시 Close를 해야한다.
+
+# ------------------------------------------------------------------------ #
 
 # with문을 사용한 requests
 with requests.Session() as s:
